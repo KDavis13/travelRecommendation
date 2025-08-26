@@ -1,74 +1,104 @@
-/* travelRecommendation.css */
 
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  background-image: url("images/background.jpg");
+  background: url("images/background.jpg") center / cover no-repeat fixed;
+  position: relative;
+  min-height: 100vh;
 }
 
-#logo {
-    height: 40px;
-    margin-right: 8px;
-    vertical-align: middle;
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.25) 0%,
+    rgba(0,0,0,0.15) 35%,
+    rgba(0,0,0,0.45) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
+/* ===== NAVBAR ===== */
 nav {
-  background-color: #2c3e50; /* un azul gris oscuro */
-  padding: 1rem 2rem;
+  position: relative;
+  z-index: 1;                    /* Encima del overlay */
+  background-color: #2c3e50cc;   /* con un pelín de transparencia */
+  padding: 0.75rem 1.25rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;   /* Logo + título juntos a la izquierda */
+  gap: 10px;                     /* separa logo y h1 */
 }
 
+/* Logo + Title */
+#logo {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  display: block;
+}
 nav h1 {
   color: #ecf0f1;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   margin: 0;
+  white-space: nowrap;
 }
 
+/* Nav bar */
 nav ul {
-  list-style: none; /* quita las viñetas */
-  margin: 0;
+  list-style: none;
+  margin: 0 0 0 auto;
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 1rem; /* espacio entre elementos */
+  gap: 1rem;
 }
 
 nav ul li {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 nav a {
   text-decoration: none;
   color: #ecf0f1;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
-
 nav a:hover {
-  color: #1abc9c; /* turquesa en hover */
+    color: #1abc9c;
 }
 
+/* Inputs and buttons */
 #search {
-  padding: 0.4rem 0.6rem;
+  padding: 0.45rem 0.6rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  background: #ffffffee;
+  outline: none;
 }
 
 button {
   background-color: #1abc9c;
   border: none;
   color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  font-weight: bold;
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: transform .05s ease, background .2s ease;
 }
 
-button:hover {
-  background-color: #16a085;
+button:hover { 
+    background-color: #16a085; 
+}
+
+button:active {
+    transform: translateY(1px);
 }
