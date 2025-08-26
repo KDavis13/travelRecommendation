@@ -11,17 +11,17 @@ body {
 
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(
+content: "";
+position: fixed;
+inset: 0;
+background: linear-gradient(
     180deg,
-    rgba(0,0,0,0.25) 0%,
-    rgba(0,0,0,0.15) 35%,
-    rgba(0,0,0,0.45) 100%
-  );
-  pointer-events: none;
-  z-index: 0;
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.25) 40%,
+    rgba(0,0,0,0.15) 100%
+);
+pointer-events: none;
+z-index: 0;
 }
 
 /* ===== NAVBAR ===== */
@@ -102,3 +102,41 @@ button:hover {
 button:active {
     transform: translateY(1px);
 }
+
+/* index h1 and p */
+#body {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    max-width: 46rem;
+    min-height: calc(100vh - 64px);
+    margin: 0;                 
+    padding: 12vh 2rem 8vh 6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+  
+  #body h1 {
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    margin: 0;
+    text-transform: uppercase;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  }
+  
+  #body p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.65;
+    font-weight: 400;
+    margin: 0;
+  
+    background: rgba(0, 0, 0, 0.28);
+    border-left: 4px solid rgba(255, 255, 255, 0.6);
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    backdrop-filter: blur(1px);
+  }
