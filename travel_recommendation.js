@@ -1,10 +1,12 @@
 const url = "./travel_recommendation_api.json";
 
 const btnSearch = document.getElementById("btnSearch");
+const btnReset = document.getElementById("btnReset");
 const searchInput = document.getElementById("search");
-const results = document.getElementById("search");
+const results = document.getElementById("results");
 
 btnSearch.addEventListener("click", fetchData);
+btnReset.addEventListener("click", resetResults);
 
 function fetchData() {
     console.log(checkSearchInput())
@@ -64,4 +66,8 @@ function checkSearchInput() {
         default:
           return "";
       }
+}
+
+function resetResults() {
+    results.innerHTML = "";
 }
