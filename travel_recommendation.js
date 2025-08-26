@@ -18,7 +18,8 @@ function fetchData() {
             return response.json();
         })
         .then(data => {
-            
+            const category = checkSearchInput();
+            renderResults(category, data);
             console.log("Data gathered:", data);
         })
         .catch(error => {
@@ -70,4 +71,42 @@ function checkSearchInput() {
 
 function resetResults() {
     results.innerHTML = "";
-}
+    results.style.display = "none";
+    searchInput.value = "";
+  }
+
+function renderResults(category, data) {
+    resetResults();
+  
+    if (!data[category] || data[category].length === 0) {
+      results.style.display = "none"; // oculta si no hay nada
+      return;
+    }
+  
+    results.style.display = "block"; // mostrar panel si hay resultados
+  
+    data[category].forEach(item => {
+      if (category === "countries" && item.cities) {
+        item.cities.forEach(city => {
+          const card = createCard(city.name, city.imageUrl, city.description);
+          results.appendChild(card);
+        });
+      } else {
+        const card = createCard(item.name, item.imageUrl, item.description);
+        results.appendChild(card);
+      }
+    });
+  }
+  
+  function createCard(title, imageUrl, description) {
+    const card = document.createElement("div");
+    card.classList.add("result-card");
+  
+    card.innerHTML = `
+      <img src="images/${imageUrl}" alt="${title}">
+      <h3>${title}</h3>
+      <p>${description}</p>
+    `;
+  
+    return card;
+  }
