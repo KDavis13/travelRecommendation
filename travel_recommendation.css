@@ -192,7 +192,7 @@ button:active { transform: translateY(1px); }
   z-index: 1;
   color: #fff;
   max-width: 920px;
-  margin: 6rem auto 4rem auto;
+  margin: auto auto 4rem auto;
   padding: 0 2rem;
 }
 
